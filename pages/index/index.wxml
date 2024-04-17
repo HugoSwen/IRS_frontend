@@ -1,0 +1,21 @@
+<!-- index.wxml-->
+<view class="image-list">
+  <view class="image-row" wx:for="{{imageGroups}}" wx:for-item="group" wx:key="index">
+    <image class="image-item" wx:for="{{group}}" wx:key="index" src="{{item.tempFilePath}}"></image>
+  </view>
+</view>
+
+<button type="default" bindtap="upload">选择样本上传</button>
+
+<view class="table">
+  <view class="table-row header">
+    <text class="table-cell">样本序号</text>
+    <text class="table-cell">预测结果</text>
+  </view>
+  <block wx:for="{{predictions}}" wx:key="index">
+    <view class="table-row">
+      <text class="table-cell">{{index + 1}}</text>
+      <text class="table-cell">{{item}}</text>
+    </view>
+  </block>
+</view>
